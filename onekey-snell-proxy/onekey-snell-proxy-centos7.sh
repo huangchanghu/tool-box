@@ -37,12 +37,17 @@ systemctl enable snell-server
 systemctl start snell-server
 systemctl status snell-server
 
+echo "firewall"
+PORT="`cat /etc/snell-server.conf | grep listen | awk -F ':' '{print $2}'`"
+firewall-cmd --zone=public --add-port=${PORT}/tcp --permanent
+firewall-cmd --reload
+
 echo "Snell proxy service has been setup successfully."
 echo "========================================"
 echo "Here are some paths:"
-Executable file: /usr/local/bin/snell-server
-Snell config file: /etc/snell-server
-Systemd service: /lib/systemd/system/snell-server.service
+echo "Executable file: /usr/local/bin/snell-server"
+echo "Snell config file: /etc/snell-server"
+echo "Systemd service: /lib/systemd/system/snell-server.service"
 
 echo "========================================"
 echo "For configuring the proxy client, you may need these:"
