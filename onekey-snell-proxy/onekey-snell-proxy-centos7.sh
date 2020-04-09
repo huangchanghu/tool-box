@@ -9,7 +9,7 @@ if [ -z "`which unzip`" ]; then
   yum install -y unzip
 fi
 
-VERSION="v1.1.1"
+VERSION="v2.0.0"
 SNELL_SERVER_PKG="snell-server-${VERSION}-linux-amd64.zip"
 URL="https://github.com/surge-networks/snell/releases/download/${VERSION}/${SNELL_SERVER_PKG}"
 TEMP_DIR="./snell-temp"
